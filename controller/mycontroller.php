@@ -51,6 +51,21 @@ class MyNewController
         $array[0]="insert into tbl_registration(reg_fname,reg_lname,reg_address,reg_num,reg_sex,reg_country,reg_state,reg_pin,reg_email,reg_password) values('".$_POST['fname']."','".$_POST['lname']."','".$_POST['address']."',".$_POST['contact'].",'".$_POST['sex']."',".$_POST['country'].",".$_POST['state'].",'".$_POST['pincode']."','".$_POST['email']."','".$_POST['pwd']."')";
         return $array;
     }
+    function SQLArray3(){
+        $array =  array();
+        
+        //$array[0]= "select state_id,country_id,state_name from tbl_state where country_id=".$_POST['varselectedCountry']."";
+        $array[0]="update tbl_registration set reg_fname='".$_POST['editfname']."',reg_lname='".$_POST['editlname']."',reg_address='".$_POST['editaddress']."',reg_num=".$_POST['editcontact'].",reg_sex='".$_POST['editsex']."',reg_country=".$_POST['editcountry'].",reg_state=".$_POST['editstate'].",reg_pin='".$_POST['editpincode']."',reg_email='".$_POST['editemail']."' where reg_id=".$_POST['editregid'];        
+        
+        return $array;
+    }
+    function SQLArray4(){
+        $array =  array();
+        
+        $array[0]= "delete from tbl_registration where reg_id=".$_POST['delregid']."";
+      
+        return $array;
+    }
     function RequestAccept($FunctionEvents)
     {
         $var =  $this->SQLArray();
@@ -82,6 +97,17 @@ class MyNewController
 
                 echo $this->varModelObj->ListFromRegView($var[1]);
              break;
+
+             
+             case 'insertEditUserDetails':
+                $var3 =  $this->SQLArray3();
+                echo $this->varModelObj->ListFromEditRegView($var3[0]);
+             break;
+             case 'deleteUserDetails':
+                $var4 =  $this->SQLArray4();
+                echo $this->varModelObj->deleteRegViewData($var4[0]);
+             break;
+             
             default:
              echo 'No Action Found...!';
              break;

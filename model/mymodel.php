@@ -9,6 +9,8 @@ abstract class FunctionDefinitions
 	abstract public function ListFromStateTable($SQL,$value,$text,$controlName,$title);
 	abstract public function InsertDetails($SQL);
 	abstract public function ListFromRegView($SQL);
+	abstract public function ListFromEditRegView($SQL);
+	abstract public function deleteRegViewData($SQL);
 }
 
 class CommonModel extends FunctionDefinitions
@@ -63,7 +65,30 @@ class CommonModel extends FunctionDefinitions
         //$temp="Success";
 		//return json_encode($temp);
 		return $SQL;
-    }
+	}
+	public function ListFromEditRegView($SQL)
+	{
+		echo $SQL;
+		$temp = array();
+		$this->result = mysqli_query($this->varDBConnection,$SQL);
+		
+        $this->flag=1;
+        //$temp="Success";
+		//return json_encode($temp);
+		return $SQL;
+	}
+	public function deleteRegViewData($SQL)
+	{
+		//echo $SQL;
+		$temp = array();
+		$this->result = mysqli_query($this->varDBConnection,$SQL);
+		
+        $this->flag=1;
+        //$temp="Success";
+		//return json_encode($temp);
+		return $SQL;
+	}
+	
     public function ListFromRegView($SQL)
 	{
 		//echo $SQL;

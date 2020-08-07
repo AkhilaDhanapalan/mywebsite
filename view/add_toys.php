@@ -97,16 +97,17 @@ tr.highlighted td {
             <input type="email" class="form-control" placeholder="Enter email" id="txt_email">
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="div_pwd">
         <label for="pwd">Password:</label>
             <input type="password" class="form-control" id="txt_pwd" name="txt_pwd">
         </div>
-        <div class="form-group">
+        <div class="form-group" id="div_repwd">
         <label for="pwd">Confirm Password:</label>
             <input type="password" class="form-control" id="re_pwd" name="re_pwd">
         </div>
-        <button type="button" class="btn btn-primary" id="reg_submit">Submit</button>
-        <button type="button" class="btn btn-warning" id="reg_edit_btn">Edit</button>
+        <button type="button" class="btn btn-primary" id="reg_submit">Insert Data</button>
+        <button type="button" class="btn btn-warning" id="reg_edit_btn">Edit Data</button>
+        <button type="button" class="btn btn-danger" id="reg_del_btn">Delete Data</button>
   
     </div>
   </div>
