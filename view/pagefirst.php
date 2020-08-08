@@ -8,6 +8,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src = "http://cdn.jsdelivr.net/jquery.cookie/1.3.1/jquery.cookie.js"></script>
+  <script>
+  $(document).ready(function(){
+    // $.cookie("name", result); 
+     if($.cookie("fname")!=null && $.cookie("lname")!=null ){
+       $("#name_id").text($.cookie("fname")+" "+$.cookie("lname"));
+     }
+    });
+  </script>
   <style>
   .fakeimg {
     height: 200px;
@@ -25,7 +34,9 @@
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-4">
-      <h2>About Me</h2>
+      
+      <h1> welcome:</h1>
+      <h2 id="name_id"></h2> 
       <h5>Photo of me:</h5>
       <div class="fakeimg">Fake Image</div>
       <p>Some text about me in culpa qui officia deserunt mollit anim..</p>

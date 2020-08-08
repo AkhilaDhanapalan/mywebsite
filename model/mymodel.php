@@ -98,10 +98,10 @@ class CommonModel extends FunctionDefinitions
 				{
 
 					
-				$_SESSION['userid']=$userid;
-				$_SESSION['disname']=$name;
-				$_SESSION['email']=$email;
-					echo 1;
+				//$_SESSION['userid']=$userid;
+				//$_SESSION['disname']=$name;
+				//$_SESSION['email']=$email;
+					echo $name."," .$lname;
 				}
 		else{ echo 0;
 		}

@@ -12,10 +12,13 @@ $(document).ready(function(){
 
         $.post("../controller/mycontroller.php",{action:"loginDetails",'login_username': login_username,'login_pwd':login_pwd},function(result){
             alert(result);
-            if($.trim(result)==1)
+            if($.trim(result)!=0)
 							{
+                                arr=result.split(',');
+                                $.cookie("fname", arr[0]); 
+                                $.cookie("lname", arr[1]); 
 								window.location.replace("pagefirst.php");
-                            }
+                           }
             else
             {
                 $("#div_login_error").html("Username or Password is Incorrect");
