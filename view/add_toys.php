@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +45,7 @@ tr.highlighted td {
 
 <div class="container" style="margin-top:30px">
   <div class="row">
-    
+  <?php echo $_SESSION['disname'];?>
     <div class="col-sm-6">
   
         <div class="form-group">

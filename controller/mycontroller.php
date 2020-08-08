@@ -66,6 +66,13 @@ class MyNewController
       
         return $array;
     }
+    function SQLArray5(){
+        $array =  array();
+        
+        $array[0]= "select * from tbl_registration where reg_email='".$_POST['login_username']."' and reg_password='".$_POST["login_pwd"]."'";
+      
+        return $array;
+    }
     function RequestAccept($FunctionEvents)
     {
         $var =  $this->SQLArray();
@@ -106,6 +113,10 @@ class MyNewController
              case 'deleteUserDetails':
                 $var4 =  $this->SQLArray4();
                 echo $this->varModelObj->deleteRegViewData($var4[0]);
+             break;
+             case 'loginDetails':
+                $var5 =  $this->SQLArray5();
+                echo $this->varModelObj->loginEnter($var5[0]);
              break;
              
             default:

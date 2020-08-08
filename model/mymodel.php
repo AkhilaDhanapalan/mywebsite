@@ -1,4 +1,4 @@
-<?php //session_start();?>
+<?php session_start();?>
 <?php 
 
 include "dbconnection.php" ;
@@ -11,6 +11,7 @@ abstract class FunctionDefinitions
 	abstract public function ListFromRegView($SQL);
 	abstract public function ListFromEditRegView($SQL);
 	abstract public function deleteRegViewData($SQL);
+	abstract public function loginEnter($SQL);
 }
 
 class CommonModel extends FunctionDefinitions
@@ -18,7 +19,7 @@ class CommonModel extends FunctionDefinitions
 	public $varDBConnection,$varAcntConnection;
 	var $result;
 	var $flag=0;
-	
+	var $userid,$name,$lname,$email;
 
 	function __construct()
 	{
@@ -68,7 +69,7 @@ class CommonModel extends FunctionDefinitions
 	}
 	public function ListFromEditRegView($SQL)
 	{
-		echo $SQL;
+		//echo $SQL;
 		$temp = array();
 		$this->result = mysqli_query($this->varDBConnection,$SQL);
 		
@@ -77,6 +78,39 @@ class CommonModel extends FunctionDefinitions
 		//return json_encode($temp);
 		return $SQL;
 	}
+	public function loginEnter($SQL)
+	{
+		
+		//echo $SQL;
+		$temp = array();
+		$this->result = mysqli_query($this->varDBConnection,$SQL);
+
+		while($row=mysqli_fetch_assoc($this->result)) {
+			//$temp['data'][] = $row;
+			$userid = $row['reg_id'];
+			$name=$row['reg_fname'];
+			$lname=$row['reg_lname'];;
+			$email=$row['reg_email'];
+		}
+
+		
+		if(mysqli_num_rows($this->result)>0)
+				{
+
+					
+				$_SESSION['userid']=$userid;
+				$_SESSION['disname']=$name;
+				$_SESSION['email']=$email;
+					echo 1;
+				}
+		else{ echo 0;
+		}
+        $this->flag=1;
+        //$temp="Success";
+		//return json_encode($temp);
+		//return $SQL;
+	}
+	
 	public function deleteRegViewData($SQL)
 	{
 		//echo $SQL;
